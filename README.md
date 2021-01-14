@@ -1,4 +1,4 @@
-In this project I practice manipulating arrays and hashs in Ruby.
+In this project I practice manipulating arrays and hashes in Ruby.
 <ol>
   <li>In the journalists file, I manipulate an array of 381 real journalists' Twitter handles</li>
   <li>In the cryptocurrencies file, I create and manipulate a hash of cryptocurrencies and their values</li>
