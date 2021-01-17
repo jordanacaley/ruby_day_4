@@ -17,7 +17,7 @@ puts my_hash.group_by(&:last).max_by(&:first).last.to_h
 puts my_hash.group_by(&:last).min_by(&:first).last.to_h
 
 # Les devises dont le cours est inférieur à 6000
-new_hash = my_hash.select{|k,v| v < 6e3}    # Generate a new hash with all the key/value pairs for values under 6000 (6e3)
+new_hash = my_hash.select{|k,v| v < 6000}    # Generate a new hash with all the key/value pairs for values under 6000 (6e3)
 puts new_hash.keys                          # Display only the keys from the new hash
 
 # La devise la plus chère parmi celles dont le cours est inférieur à 6000.
