@@ -6,7 +6,7 @@ def number_of_handles(journalists)
 end
 
 # 2--- Quel est le handle le plus court de cette liste ? ---
-def shortest_handle
+def shortest_handle(journalists)
   puts "#{journalists.min_by(&:length)} has the shortest handle of all!"
 end
 
@@ -72,35 +72,46 @@ end
 
 
 def menu_options(journalists)
-  puts "Hello! What do you want to know about this array of journalists' Twitter handles?"
-  puts "Press 1: How many handles are in this array?"
-  puts "Press 2: What is the shortest handle in the list?"
-  puts "Press 3: How many handles contain 5 characters?"
-  puts "Press 4: How many handles start with a capital letter?"
-  puts "Press 5: Sort the handles alphabetically"
-  puts "Press 6: Sort the handles by length"
-  puts "Press 7: What number is @epenser on the list?"
-  puts "Press 8: Give me a breakdown of handles by length"
-  user_input = gets.chomp.to_i
-  if user_input == 1
-    number_of_handles(journalists)
-  elsif user_input == 2
-    shortest_handle(journalists)
-  elsif user_input == 3
-    handles_with_5_chars(journalists)
-  elsif user_input == 4
-    cap_handles(journalists)
-  elsif user_input == 5
-    alph_handles(journalists)
-  elsif user_input == 6
-    handle_length(journalists)
-  elsif user_input == 7
-    find_epenser(journalists)
-  elsif user_input == 8
-    handles_by_size(journalists)
-  else puts "Please press a number 1-8"
-    menu_options(journalists)
+  user_input = ""
+  while user_input != "q"
+    p "#" * 50
+    puts "
+          Hello! What do you want to know about this array of journalists' Twitter handles?
+          Press 1: How many handles are in this array?
+          Press 2: What is the shortest handle in the list?
+          Press 3: How many handles contain 5 characters?
+          Press 4: How many handles start with a capital letter?
+          Press 5: Sort the handles alphabetically
+          Press 6: Sort the handles by length
+          Press 7: What number is @epenser on the list?
+          Press 8: Give me a breakdown of handles by length
+          Press q: Exit program
+        "
+        p "#" * 50
+        user_input = gets.chomp
+        case user_input
+        when "1"
+          number_of_handles(journalists)
+        when "2"
+          shortest_handle(journalists)
+        when "3"
+          handles_with_5_chars(journalists)
+        when "4"
+          cap_handles(journalists)
+        when "5"
+          alph_handles(journalists)
+        when "6"
+          handle_length(journalists)
+        when "7"
+          find_epenser(journalists)
+        when "8"
+          handles_by_size(journalists)
+        when "q"
+          puts "Thanks for using this application!"
+        else 
+          puts "Please press a number 1-8"
+      end
+    end  
   end
-end
 
 menu_options(journalists)
